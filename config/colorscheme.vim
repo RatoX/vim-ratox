@@ -1,1 +1,1 @@
-colorscheme gentooish
+colorscheme molokai
