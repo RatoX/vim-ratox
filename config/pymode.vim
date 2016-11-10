@@ -1,3 +1,4 @@
+nnoremap <leader>b iimport ipdb; ipdb.set_trace()<Esc>
 
 let g:pymode_rope_goto_definition_cmd = 'vnew'
 let g:pymode_indent = 1

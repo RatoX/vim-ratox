@@ -3,7 +3,9 @@ set clipboard=unnamed
 set paste
 set encoding=utf-8
 set fileencoding=utf-8
-set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+set tabstop=4
+set shiftwidth=4
+set expandtab
 set history=100
 set undolevels=1000
 set noswf
@@ -18,3 +20,4 @@ set splitright
 set relativenumber
 set scrolloff=5
 set background=dark
+set wildmenu
