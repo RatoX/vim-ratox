@@ -1,3 +1,5 @@
+set tags=tags
+set clipboard=unnamed
 set paste
 set encoding=utf-8
 set fileencoding=utf-8

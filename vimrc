@@ -32,6 +32,7 @@ Plugin 'roman/golden-ratio'
 Plugin 'luochen1990/rainbow'
 Plugin 'briancollins/vim-jst'
 Plugin 'digitaltoad/vim-pug'
+Plugin 'klen/python-mode'
 
 call vundle#end()
 filetype plugin indent on
