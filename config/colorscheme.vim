@@ -1,1 +1,1 @@
-colorscheme monokai
+colorscheme gentooish

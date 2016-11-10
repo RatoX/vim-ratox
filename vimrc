@@ -37,4 +37,4 @@ Plugin 'klen/python-mode'
 call vundle#end()
 filetype plugin indent on
 
-runtime! config/**.vim
+runtime! config/*.vim
