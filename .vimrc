@@ -20,7 +20,7 @@ set scrolloff=5
 set nocompatible              " be iMproved, required
 " set the runtime path to include Vundle and initialize
 
-set rtp+=~/vim-ratox/Vundle.vim
+set rtp+=~/vim-ratox/bundle/vundle/
 call vundle#begin()
 " let Vundle manage Vundle, required
 Bundle 'gmarik/vundle'
