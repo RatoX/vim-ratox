@@ -3,8 +3,8 @@ set clipboard=unnamed
 set paste
 set encoding=utf-8
 set fileencoding=utf-8
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set expandtab
 set history=100
 set undolevels=1000
