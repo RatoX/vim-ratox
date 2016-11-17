@@ -2,10 +2,13 @@ set nocompatible
 filetype off
 syntax on
 
-set rtp+=~/vim-ratox/
-set rtp+=~/vim-ratox/bundle/vundle/
+let vimcustom = fnamemodify(resolve(expand('<sfile>:p')), ':h') . '/'
+let vimcustombundle = vimcustom . '/bundle/'
+let vimcustomvundle = vimcustombundle . '/vundle/'
 
-call vundle#begin()
+let &runtimepath.=',' . vimcustom . ',' . vimcustomvundle
+
+call vundle#begin(vimcustombundle)
 
 Plugin 'gmarik/vundle'
 Plugin 'tpope/vim-fugitive'
