@@ -43,6 +43,5 @@ Plugin 'morhetz/gruvbox'
 
 call vundle#end()
 filetype plugin indent on
-autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 
 runtime! config/*.vim
