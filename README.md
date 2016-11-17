@@ -2,5 +2,7 @@
 
 ```
 git submodule update --init --recursive
-ln -s $(pwd)/vimrc ~/.vimrc
+cp ~/.vimrc ~/.vimrc_bak "Save your old vim config
+ln -fs $(pwd)/vimrc ~/.vimrc
+vim +:PluginInstall +:qall
 ```
