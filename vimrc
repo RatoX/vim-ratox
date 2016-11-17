@@ -14,7 +14,6 @@ Plugin 'scrooloose/syntastic'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'bling/vim-airline'
-Plugin 'pangloss/vim-javascript'
 Plugin 'groenewege/vim-less'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'elzr/vim-json'
@@ -33,6 +32,8 @@ Plugin 'luochen1990/rainbow'
 Plugin 'briancollins/vim-jst'
 Plugin 'digitaltoad/vim-pug'
 Plugin 'klen/python-mode'
+Plugin 'pangloss/vim-javascript'
+Plugin 'crusoexia/vim-javascript-lib'
 
 call vundle#end()
 filetype plugin indent on
