@@ -21,3 +21,5 @@ set relativenumber
 set scrolloff=5
 set background=dark
 set wildmenu
+set smartcase
+syntax enable

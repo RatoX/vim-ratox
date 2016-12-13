@@ -1,12 +1,13 @@
 set nocompatible
 filetype off
-syntax on
 
 let vimcustom = fnamemodify(resolve(expand('<sfile>:p')), ':h') . '/'
 let vimcustombundle = vimcustom . '/bundle/'
 let vimcustomvundle = vimcustombundle . '/vundle/'
 
 let &runtimepath.=',' . vimcustom . ',' . vimcustomvundle
+
+set rtp+=&runtimepath
 
 call vundle#begin(vimcustombundle)
 
