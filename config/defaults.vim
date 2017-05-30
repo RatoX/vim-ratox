@@ -21,6 +21,8 @@ set scrolloff=5
 set wildmenu
 set smartcase
 syntax enable
+set expandtab
+set softtabstop=4
 set autoindent
 set smarttab
 filetype plugin indent on
