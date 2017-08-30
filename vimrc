@@ -29,7 +29,6 @@ Plugin 'digitaltoad/vim-jade'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'rking/ag.vim'
 Plugin 'moll/vim-node'
-Plugin 'crusoexia/vim-monokai'
 Plugin 'chase/vim-ansible-yaml'
 Plugin 'roman/golden-ratio'
 Plugin 'luochen1990/rainbow'
@@ -38,8 +37,12 @@ Plugin 'digitaltoad/vim-pug'
 Plugin 'klen/python-mode'
 Plugin 'pangloss/vim-javascript'
 Plugin 'crusoexia/vim-javascript-lib'
+Plugin 'mattn/emmet-vim'
+Plugin 'posva/vim-vue'
+Plugin 'morhetz/gruvbox'
 
 call vundle#end()
 filetype plugin indent on
+autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 
 runtime! config/*.vim

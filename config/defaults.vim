@@ -18,7 +18,6 @@ set wildignore+=*/tmp/*,*/_site/*,*/bower_components/*,*/node_modules/*,*.so,*.s
 set splitbelow
 set splitright
 set scrolloff=5
-set background=dark
 set wildmenu
 set smartcase
 syntax enable
