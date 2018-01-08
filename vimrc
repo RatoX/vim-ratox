@@ -14,7 +14,6 @@ call vundle#begin(vimcustombundle)
 Plugin 'gmarik/vundle'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'bling/vim-airline'
@@ -40,9 +39,12 @@ Plugin 'crusoexia/vim-javascript-lib'
 Plugin 'mattn/emmet-vim'
 Plugin 'posva/vim-vue'
 Plugin 'morhetz/gruvbox'
+Plugin 'hail2u/vim-css3-syntax'
+Plugin 'vim-syntastic/syntastic'
 
 call vundle#end()
 filetype plugin indent on
 autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
+let g:vue_disable_pre_processors=1
 
 runtime! config/*.vim
