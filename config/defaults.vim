@@ -13,7 +13,7 @@ set backspace=indent,eol,start
 set cursorline
 set number
 set autoread
-set wildignore+=*/tmp/*,*/_site/*,*/bower_components/*,*/node_modules/*,*.so,*.swp,*.zip,*/.git/*,*/coverage/*,*ckeditor*/,
+set wildignore+=*/tmp/*,*/_site/*,*/bower_components/*,*/node_modules/*,*.so,*.swp,*.zip,*/.git/*,*/coverage/*,*ckeditor*/,tags,
 set splitbelow
 set splitright
 set scrolloff=5
