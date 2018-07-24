@@ -16,7 +16,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-surround'
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
 Plugin 'groenewege/vim-less'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'elzr/vim-json'
@@ -41,6 +41,9 @@ Plugin 'posva/vim-vue'
 Plugin 'morhetz/gruvbox'
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'vim-syntastic/syntastic'
+Plugin 'mtscout6/syntastic-local-eslint.vim'
+Plugin 'mxw/vim-jsx'
+Plugin 'git-time-metric/gtm-vim-plugin'
 
 call vundle#end()
 filetype plugin indent on
