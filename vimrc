@@ -46,7 +46,6 @@ Plugin 'git-time-metric/gtm-vim-plugin'
 
 call vundle#end()
 filetype plugin indent on
-autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 
 let g:vue_disable_pre_processors=1
 
@@ -123,16 +122,6 @@ call NERDTreeHighlightFile('rb', 'Magenta', 'none', '#ff00ff', '#151515')
 " Rainbow
 let g:rainbow_active = 1
 
-" My Custom remaps
-noremap <F2> :NERDTreeToggle<CR>
-noremap <F3> :ccl<CR>
-noremap <F4> :NERDTreeFind<CR>
-noremap <silent>s :w<CR>
-noremap <c-S> <Esc>:%s/\t/  /g<CR>
-noremap <silent><CR> :let @*=@%<CR>
-noremap Q :q<CR>
-noremap j gj
-
 
 " Statusline
 set statusline=
@@ -174,3 +163,23 @@ if executable(local_eslint)
   let g:syntastic_javascript_eslint_exec = local_eslint
   let g:syntastic_vue_eslint_exec = local_eslint
 endif
+
+" My Custom remaps
+noremap <silent><CR> :let @*=@%<CR>
+noremap Q :q<CR>
+noremap j gj
+
+nnoremap <silent><tab> :tabnext<CR>
+nnoremap <silent><bs> :ccl<CR>
+nnoremap <silent>s :w<CR>
+nnoremap <space> :NERDTreeToggle %<CR>
+
+" My abbreviations
+iabbrev lenght length
+
+
+" set local configuration to avoid conflict with coffee script plugin
+autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
+autocmd BufNewFile,BufReadPost *.spec.js iabbrev <buffer> it() it ('', () => {
+  \<CR>})<Esc>O
+
