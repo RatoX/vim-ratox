@@ -12,37 +12,34 @@ set rtp+=&runtimepath
 call vundle#begin(vimcustombundle)
 
 Plugin 'gmarik/vundle'
+
+
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-airline/vim-airline'
-Plugin 'groenewege/vim-less'
 Plugin 'terryma/vim-multiple-cursors'
-Plugin 'elzr/vim-json'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'vim-ruby/vim-ruby'
 Plugin 'gagoar/StripWhiteSpaces'
-Plugin 'digitaltoad/vim-jade'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'rking/ag.vim'
-Plugin 'moll/vim-node'
-Plugin 'chase/vim-ansible-yaml'
 Plugin 'roman/golden-ratio'
-Plugin 'luochen1990/rainbow'
-Plugin 'briancollins/vim-jst'
-Plugin 'digitaltoad/vim-pug'
+Plugin 'mattn/emmet-vim'
+Plugin 'morhetz/gruvbox'
+
+" Plugin 'vim-syntastic/syntastic'
+" Plugin 'mtscout6/syntastic-local-eslint.vim'
+
 Plugin 'pangloss/vim-javascript'
 Plugin 'crusoexia/vim-javascript-lib'
-Plugin 'mattn/emmet-vim'
-Plugin 'posva/vim-vue'
-Plugin 'morhetz/gruvbox'
-Plugin 'hail2u/vim-css3-syntax'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'mtscout6/syntastic-local-eslint.vim'
 Plugin 'mxw/vim-jsx'
-Plugin 'git-time-metric/gtm-vim-plugin'
+Plugin 'elzr/vim-json'
+Plugin 'hail2u/vim-css3-syntax'
+Plugin 'Quramy/tsuquyomi'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'HerringtonDarkholme/yats.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -173,6 +170,7 @@ nnoremap <silent><tab> :tabnext<CR>
 nnoremap <silent><bs> :ccl<CR>
 nnoremap <silent>s :w<CR>
 nnoremap <space> :NERDTreeToggle %<CR>
+nnoremap <space><space> :NERDTreeFind <CR>
 
 " My abbreviations
 iabbrev lenght length
@@ -183,3 +181,6 @@ autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 autocmd BufNewFile,BufReadPost *.spec.js iabbrev <buffer> it() it ('', () => {
   \<CR>})<Esc>O
 
+" TypeScript configuration
+let g:tsuquyomi_disable_quickfix = 1
+let g:syntastic_typescript_checkers = ['tsuquyomi']
