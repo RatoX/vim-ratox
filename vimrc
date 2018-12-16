@@ -12,11 +12,9 @@ set rtp+=&runtimepath
 call vundle#begin(vimcustombundle)
 
 Plugin 'gmarik/vundle'
-
-
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-airline/vim-airline'
 Plugin 'terryma/vim-multiple-cursors'
@@ -27,33 +25,26 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'rking/ag.vim'
 Plugin 'roman/golden-ratio'
 Plugin 'mattn/emmet-vim'
-Plugin 'morhetz/gruvbox'
-
-" Plugin 'vim-syntastic/syntastic'
-" Plugin 'mtscout6/syntastic-local-eslint.vim'
-
+Plugin 'ajh17/spacegray.vim'
 Plugin 'pangloss/vim-javascript'
-Plugin 'crusoexia/vim-javascript-lib'
+Plugin 'HerringtonDarkholme/yats.vim'
 Plugin 'mxw/vim-jsx'
 Plugin 'elzr/vim-json'
 Plugin 'hail2u/vim-css3-syntax'
-Plugin 'Quramy/tsuquyomi'
 Plugin 'leafgarland/typescript-vim'
-Plugin 'HerringtonDarkholme/yats.vim'
+Plugin 'w0rp/ale'
+Plugin 'Quramy/tsuquyomi'
 
 call vundle#end()
 filetype plugin indent on
 
-let g:vue_disable_pre_processors=1
-
 " Ag configuration
 let g:ag_working_path_mode="r"
 
-" Color Scheme
-set t_Co=256
-
-colorscheme gruvbox
-set background=dark
+colorscheme spacegray
+let g:spacegray_underline_search = 1
+let g:spacegray_use_italics = 1
+let g:spacegray_low_contrast = 1
 
 " defaults
 set tags=tags
@@ -71,7 +62,7 @@ set backspace=indent,eol,start
 set cursorline
 set number
 set autoread
-set wildignore+=*/tmp/*,*/_site/*,*/bower_components/*,*/node_modules/*,*.so,*.swp,*.zip,*/.git/*,*/coverage/*,*ckeditor*/,tags,*/logs/*,*/build/*,
+set wildignore+=*/examples/*,*/tmp/*,*/_site/*,*/bower_components/*,*/node_modules/*,*.so,*.swp,*.zip,*/.git/*,*/coverage/*,*ckeditor*/,tags,*/logs/*,*/build/*,
 set splitbelow
 set splitright
 set scrolloff=5
@@ -81,12 +72,6 @@ syntax enable
 
 " EMMET
 let g:user_emmet_leader_key='\'
-
-" Custom Functions
-com! Json :%!python -m json.tool
-
-" JavaScript Flow
-let g:javascript_plugin_flow = 1
 
 " Multi Cursor
 let g:multi_cursor_exit_from_insert_mode = 0
@@ -116,10 +101,6 @@ call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
 call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
 call NERDTreeHighlightFile('rb', 'Magenta', 'none', '#ff00ff', '#151515')
 
-" Rainbow
-let g:rainbow_active = 1
-
-
 " Statusline
 set statusline=
 set statusline=[%n] "buffer mode
@@ -142,45 +123,24 @@ set statusline+=\ \|%L\ lines\| "total lines
 set statusline+=\ %P            "percent through file
 set laststatus=2
 
-" Syntastic
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let syntastic_mode_map = { 'passive_filetypes': ['html', 'sass'] }
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_vue_checkers = ['eslint']
-let local_eslint = finddir('node_modules', '.;') . '/.bin/eslint'
+" Ctrl + p custom
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
-if matchstr(local_eslint, "^\/\\w") == ''
-  let local_eslint = getcwd() . "/" . local_eslint
-endif
-
-if executable(local_eslint)
-  let g:syntastic_javascript_eslint_exec = local_eslint
-  let g:syntastic_vue_eslint_exec = local_eslint
-endif
+" TypeScript configuration
+let g:tsuquyomi_disable_quickfix = 1
+let g:tsuquyomi_shortest_import_path = 1
 
 " My Custom remaps
 noremap <silent><CR> :let @*=@%<CR>
 noremap Q :q<CR>
-noremap j gj
+noremap e ea
+noremap <leader>i <Esc>:TsuImport<CR>
 
 nnoremap <silent><tab> :tabnext<CR>
 nnoremap <silent><bs> :ccl<CR>
 nnoremap <silent>s :w<CR>
 nnoremap <space> :NERDTreeToggle %<CR>
-nnoremap <space><space> :NERDTreeFind <CR>
+nnoremap <space><space> :NERDTreeFind<CR>
 
 " My abbreviations
 iabbrev lenght length
-
-
-" set local configuration to avoid conflict with coffee script plugin
-autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
-autocmd BufNewFile,BufReadPost *.spec.js iabbrev <buffer> it() it ('', () => {
-  \<CR>})<Esc>O
-
-" TypeScript configuration
-let g:tsuquyomi_disable_quickfix = 1
-let g:syntastic_typescript_checkers = ['tsuquyomi']
