@@ -14,12 +14,14 @@ call vundle#begin(vimcustombundle)
 Plugin 'gmarik/vundle'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
+" Plugin 'tpope/vim-vinegar'
+Plugin 'wellle/targets.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-airline/vim-airline'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'gagoar/StripWhiteSpaces'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'rking/ag.vim'
@@ -34,6 +36,8 @@ Plugin 'hail2u/vim-css3-syntax'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'w0rp/ale'
 Plugin 'Quramy/tsuquyomi'
+Plugin 'kshenoy/vim-signature'
+Plugin 'cocopon/iceberg.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -41,7 +45,7 @@ filetype plugin indent on
 " Ag configuration
 let g:ag_working_path_mode="r"
 
-colorscheme spacegray
+colorscheme iceberg
 let g:spacegray_underline_search = 1
 let g:spacegray_use_italics = 1
 let g:spacegray_low_contrast = 1
@@ -68,6 +72,7 @@ set splitright
 set scrolloff=5
 set wildmenu
 set smartcase
+set ttyfast
 syntax enable
 
 " EMMET
@@ -114,7 +119,7 @@ set statusline+=%{(&fenc!='utf-8'&&&fenc!='')?'['.&fenc.']':''}
 set statusline+=%=              "left/right separator
 set statusline+=%*              "show the errors/warning in the status line
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 set statusline+=%=              "left/right separator
 set statusline+=%h\ \           "help file flag
@@ -135,6 +140,7 @@ noremap <silent><CR> :let @*=@%<CR>
 noremap Q :q<CR>
 noremap e ea
 noremap <leader>i <Esc>:TsuImport<CR>
+noremap <leader>f <Esc>"9yiw :Ag! <C-R>9<CR>
 
 nnoremap <silent><tab> :tabnext<CR>
 nnoremap <silent><bs> :ccl<CR>
