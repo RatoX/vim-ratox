@@ -8,6 +8,7 @@ let vimcustomvundle = vimcustombundle . '/vundle/'
 let &runtimepath.=',' . vimcustom . ',' . vimcustomvundle
 
 set rtp+=&runtimepath
+set rtp+=/usr/local/opt/fzf
 
 call vundle#begin(vimcustombundle)
 
@@ -17,7 +18,6 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 " Plugin 'tpope/vim-vinegar'
 Plugin 'wellle/targets.vim'
-Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-airline/vim-airline'
 Plugin 'terryma/vim-multiple-cursors'
@@ -38,6 +38,7 @@ Plugin 'w0rp/ale'
 Plugin 'Quramy/tsuquyomi'
 Plugin 'kshenoy/vim-signature'
 Plugin 'cocopon/iceberg.vim'
+" Plugin 'neoclide/coc.nvim', {'do': './install.sh nightly'}
 
 call vundle#end()
 filetype plugin indent on
@@ -150,3 +151,16 @@ nnoremap <space><space> :NERDTreeFind<CR>
 
 " My abbreviations
 iabbrev lenght length
+
+" This command now supports CTRL-T, CTRL-V, and CTRL-X key bindings
+" and opens fzf according to g:fzf_layout setting.
+command! Buffers call fzf#run(fzf#wrap(
+    \ {'source': map(range(1, bufnr('$')), 'bufname(v:val)')}))
+"
+" FZF Commands
+noremap <C-p> <Esc>:FZF<CR>
+noremap <C-b> <Esc>:Buffers<CR>
+
+if !has('nvim')
+  set ttymouse=xterm2
+endif
